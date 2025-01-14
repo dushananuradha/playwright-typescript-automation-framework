@@ -15,6 +15,6 @@ test.describe("Test login", () => {
         await loginPage.fillPassword(user.password);
 
         const homePage = await loginPage.clickLoginButton();
-        await homePage.expectHomeTitleToBeVisible();
+        await homePage.verifyHomePageTitleVisibility();
     });
 });
