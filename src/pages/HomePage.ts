@@ -14,5 +14,4 @@ export default class HomePage {
         await this.textAssert.expectTextToBeVisible(this.titleHomePage);
     }
 
-   
 }

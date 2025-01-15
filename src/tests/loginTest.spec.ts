@@ -1,4 +1,4 @@
-import { test } from "../../fixtures";
+import {test} from "../../fixtures";
 import LoginPage from "../pages/LoginPage";
 
 
