@@ -4,3 +4,7 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /testConfig.json
+/test-results
+/playwright-report
+/playwright/.cache
+*.log
