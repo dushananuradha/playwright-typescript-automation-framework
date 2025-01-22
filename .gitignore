@@ -3,7 +3,6 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-/testConfig.json
 /test-results
 /playwright-report
 /playwright/.cache
