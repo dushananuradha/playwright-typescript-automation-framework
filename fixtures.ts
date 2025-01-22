@@ -4,8 +4,6 @@ import * as path from "path";
 
 type TestConfig = {
   baseURL: string;
-  username: string;
-  password: string;
 };
 
 export const test = base.extend<{ testConfig: TestConfig }>({
