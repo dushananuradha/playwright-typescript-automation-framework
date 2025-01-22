@@ -17,7 +17,13 @@ jobs:
                     echo "✅ Browsers installed successfully!"
             
             -   name: Run Playwright tests
-                run: npx playwright test
+                env:
+                    PW_USERNAME: ${{ secrets.PW_USERNAME }}
+                    PW_PASSWORD: ${{ secrets.PW_PASSWORD }}
+                run: |
+                    echo "PW_USERNAME : ${{ secrets.PW_USERNAME }}"
+                    echo "PW_PASSWORD : ${{ secrets.PW_PASSWORD }}"
+                    npx playwright test
 
             -   name: Upload test results
                 uses: actions/upload-artifact@v4
