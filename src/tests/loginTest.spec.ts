@@ -22,9 +22,9 @@ test.describe("Test login", () => {
         // await loginPage.fillPassword(testConfig.password);
 
         await loginPage.fillUsername(username);
-        console.log("secrte:username", username);
+        console.log('Username length:', process.env.PW_USERNAME?.length || 'Not set');
         await loginPage.fillPassword(password);
-        console.log("secrte:password", password);
+        console.log('Username length:', process.env.PW_PASSWORD?.length || 'Not set');
         const homePage = await loginPage.clickLoginButton();
         await homePage.verifyHomePageTitleVisibility();
         logger.info("Test Completed");
