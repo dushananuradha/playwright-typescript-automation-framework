@@ -10,10 +10,7 @@ jobs:
                 with:
                     submodules: recursive
             -   name: Debug Submodule
-                run: |
-                    pwd
-                    ls _r
-                    git submodule status
+                run:  git submodule status
             -   name: Use Node.js
                 uses: actions/setup-node@v4
             -   name: Install dependencies
