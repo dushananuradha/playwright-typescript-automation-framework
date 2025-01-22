@@ -11,8 +11,10 @@ jobs:
                     submodules: recursive
             -   name: Debug Submodule
                 run:  git submodule status
+                
             -   name: Use Node.js
                 uses: actions/setup-node@v4
+                
             -   name: Install dependencies
                 run: |
                     npm ci
@@ -24,10 +26,7 @@ jobs:
                 env:
                     PW_USERNAME: ${{ secrets.PW_USERNAME }}
                     PW_PASSWORD: ${{ secrets.PW_PASSWORD }}
-                run: |
-                    echo "PW_USERNAME : ${{ secrets.PW_USERNAME }}"
-                    echo "PW_PASSWORD : ${{ secrets.PW_PASSWORD }}"
-                    npx playwright test
+                run: npx playwright test
 
             -   name: Upload test results
                 uses: actions/upload-artifact@v4
