@@ -1,0 +1,35 @@
+version: 2.1
+
+parameters:
+  run_on_master:
+    type: string
+    default: "master"
+
+jobs:
+  run-test:
+    docker:
+      - image: docker pull mcr.microsoft.com/playwright:v1.49.1-noble
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            npm ci
+            echo "✅ Dependencies installed successfully!"
+            npx playwright install --with-deps
+            echo "✅ Browsers installed successfully!"
+      - run:
+          name: Run Playwright tests
+          command: npx playwright test
+      - store_test_results:
+          path: results.html
+
+workflows:
+  run-test-workflow:
+    jobs:
+      - run-test:
+          filters:
+            branches:
+              only: << pipeline.parameters.run_on_master >>
+
+        
