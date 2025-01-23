@@ -10,6 +10,9 @@ test.beforeEach(async ({ page, testConfig }) => {
 
 test.describe("Test login", () => {
     test("Verify login", async ({ page, testConfig }) => {
+        console.log('Environment Variables:');
+        console.log('PW_USERNAME:', process.env.PW_USERNAME);
+        console.log('PW_PASSWORD:', process.env.PW_PASSWORD ? 'Set' : 'Not Set');
         // const { username, password } = pwTestCredentials;
         const username: any = process.env.PW_USERNAME;
         const password: any = process.env.PW_PASSWORD;
@@ -21,9 +24,9 @@ test.describe("Test login", () => {
 
         try {
             await loginPage.fillUsername(username);
-            logger.info("entered_username : ", username);
+            console.log("entered_username : ", username);
             await loginPage.fillPassword(password);
-            logger.info("entered_password : ", password);
+            console.log("entered_password : ", password);
             await Promise.all([
                 page.waitForEvent('load'),
                 await loginPage.clickLoginButton()
