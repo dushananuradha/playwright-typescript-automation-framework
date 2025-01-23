@@ -5,7 +5,7 @@ parameters:
     type: string
     default: "master"
 
-executor:
+executors:
   pw-noble-development:
     docker:
       - image: mcr.microsoft.com/playwright:v1.49.1-noble
@@ -25,9 +25,9 @@ jobs:
       - run:
           name: Run Playwright tests
           command: npx playwright test
-      - store_test_results:
-          path: results.html
-
+      - store_artifacts:
+                path: playwright-report
+                destination: playwright-report
 workflows:
   run-test-workflow:
     jobs:
