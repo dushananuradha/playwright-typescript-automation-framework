@@ -5,10 +5,14 @@ parameters:
     type: string
     default: "master"
 
+executor:
+  pw-noble-development:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.49.1-noble
+
 jobs:
   run-test:
-    docker:
-      - image: docker pull mcr.microsoft.com/playwright:v1.49.1-noble
+    executor: pw-noble-development
     steps:
       - checkout
       - run:
@@ -31,5 +35,3 @@ workflows:
           filters:
             branches:
               only: << pipeline.parameters.run_on_master >>
-
-        
