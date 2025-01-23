@@ -21,7 +21,9 @@ test.describe("Test login", () => {
 
         try {
             await loginPage.fillUsername(username);
+            logger.info("entered_username : ", username);
             await loginPage.fillPassword(password);
+            logger.info("entered_password : ", password);
             await Promise.all([
                 page.waitForEvent('load'),
                 await loginPage.clickLoginButton()
